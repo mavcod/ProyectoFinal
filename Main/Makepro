@@ -1,0 +1,14 @@
+PROJECT = main.exe
+CC = gcc
+COMPILE_OPTIONS = -pedantic -Wall
+
+HEADERS = funcionesRgbHsv.h loadBMP.h
+SOURCE_FILES = funciones.c Main.c loadBMP.c
+
+all: $(PROJECT)
+
+$(PROJECT):
+	$(CC) $(HEADERS) $(SOURCE_FILES) -o $(PROJECT)
+
+clean:
+	rm -f $(PROJECT) img.bmp
