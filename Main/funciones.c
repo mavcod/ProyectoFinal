@@ -12,17 +12,46 @@ return avg;
 
 }
 
-double maxim()//funcion maximo de pixel entre canales
+uint8_t maxim(uint8_t A,uint8_t B,uint8_t C)//funcion maximo de pixel entre canales
 {
+uint8_t MAXI;
+if(A > B) {
+	if(A > C) {
+		MAXI=A;
+		}
+	else {
+		MAXI=C;
+		}
+}
+else {
+	if(B > C) {
+		MAXI=B;
+		}
+	else {
+		MAXI=C;
+		}
+}
+return MAXI;
 printf( "falta maximo RGB \n" ); 
-return 0;
+//return 0;
 
 }
 
-double minim()//funcion minimo de pixel entre canales
+uint8_t minim(uint8_t A,uint8_t B,uint8_t C)//funcion minimo de pixel entre canales
 {
-printf( "falta minimo RGB \n" ); 
-return 0;
+    uint8_t mini = A;
+    if (mini > B) {
+		mini = B;
+		}
+	else if (mini > C){
+		 mini = C;
+		}
+	else {
+		mini=mini;
+		}
+    return mini;
+
+//printf( "falta minimo RGB \n" ); 
 }
 
 double Color()//funcion minimo de pixel entre canales
@@ -31,10 +60,11 @@ printf( "falta minimo Hue \n" );
 return 0;
 }
 
-double Saturacion()//funcion minimo de pixel entre canales
+double Saturacion(uint8_t A, uint8_t B)//funcion minimo de pixel entre canales
 {
-printf( "falta minimo Saturacion \n" ); 
-return 0;
+double sat;
+sat=(double)(A-B)/A;
+return sat;
 }
 
 double Brillo()//funcion minimo de pixel entre canales
