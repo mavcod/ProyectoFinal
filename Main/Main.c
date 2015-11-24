@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "funcionesRgbHsv.h" 
 #include "loadBMP.h"
-
 int main()
 {  
 printf( "Principal Main \n" ); 
@@ -15,19 +14,21 @@ uint8_t Bpixel;
 uint8_t Gpixel;
 //recorriendo la imagen
 for (i = 0; i < img->width*img->height; i++) {
-Rpixel=img->data[i].r;
-Bpixel=img->data[i].g;
-Gpixel=img->data[i].b;
+Rpixel=(uint8_t)img->data[i].r;
+Bpixel=(uint8_t)img->data[i].g;
+Gpixel=(uint8_t)img->data[i].b;
 //enviando las variables a las funciones.
-uint8_t avg = (Rpixel+ Bpixel + Gpixel)/3;
+//uint8_t avg = (Rpixel+ Bpixel + Gpixel)/3;
+uint8_t H;
+H = (uint8_t)lecturaRGB(Rpixel, Gpixel, Bpixel);
 //prototipado funcion promedio
-img->data[i].r = avg;
-img->data[i].g = avg;
-img->data[i].b = avg;
+img->data[i].r = H;
+img->data[i].g = H;
+img->data[i].b = H;
 }
-writeBMP("demo.bmp", img);
+writeBMP("img.bmp", img);
 ///
-lecturaRGB();
+//lecturaRGB();
 maxim();
 minim();
 

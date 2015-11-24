@@ -1,12 +1,14 @@
 #include <stdio.h> 
 #include <stdlib.h>
 #include <math.h> 
+#include <stdint.h>
 #include "funcionesRgbHsv.h" //funciones
 
-double lecturaRGB ()//Funcion lectura RGB
+uint8_t lecturaRGB (uint8_t R, uint8_t G, uint8_t B)//Funcion lectura RGB
 {
-printf( "falta lectura RGB \n" ); 
-return 0;
+uint8_t avg = (R+B+G)/3;
+//printf( "falta lectura RGB \n" ); 
+return avg;
 
 }
 
