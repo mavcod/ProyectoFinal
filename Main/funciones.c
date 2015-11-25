@@ -54,10 +54,36 @@ uint8_t minim(uint8_t A,uint8_t B,uint8_t C)//funcion minimo de pixel entre cana
 //printf( "falta minimo RGB \n" ); 
 }
 
-double Color()//funcion minimo de pixel entre canales
-{
-printf( "falta minimo Hue \n" ); 
-return 0;
+double Color(uint8_t Max,uint8_t min,uint8_t A,uint8_t B,uint8_t C)//funcion minimo de pixel entre canales
+{	
+	uint8_t r=Max-min;
+	double  h=0.00;
+
+	
+	if(A==Max)&&(C!=0){
+	
+	   h=((B-C)/r)%6;
+			
+	}else{
+	
+		if(B==Max)&&(C!=0){
+	
+	   		h=(C-A)/r)+2;
+			
+		}else{
+	
+			if(B==min)&&(C!=0){
+		
+		   		h=(A-B)/r)+4;
+			}else{h=0;}
+		     }
+
+	
+	     }
+
+	h=h*60;
+ 
+return h;
 }
 
 double Saturacion(uint8_t A, uint8_t B)//funcion minimo de pixel entre canales
