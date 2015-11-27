@@ -99,3 +99,12 @@ double Brillo()//funcion minimo de pixel entre canales
 printf( "falta minimo Brillo \n" ); 
 return 0;
 }
+
+double FiltroExperimental(uint8_t h, uint8_t s, uint8_t v)//funcion para aplicar filtro a los datos
+{
+double filtro;
+filtro=(double)(1-(h-(s-v)^2))
+return filtro;
+}
+
+
