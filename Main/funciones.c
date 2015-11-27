@@ -54,26 +54,26 @@ uint8_t minim(uint8_t A,uint8_t B,uint8_t C)//funcion minimo de pixel entre cana
 //printf( "falta minimo RGB \n" ); 
 }
 
-double Color(uint8_t Max,uint8_t min,uint8_t A,uint8_t B,uint8_t C)//H function
+float Color(uint8_t Max,uint8_t min,uint8_t A,uint8_t B,uint8_t C)//H function
 {	
-	uint8_t r=Max-min;
-	double  h=0.00;
+	double r=(double)(Max-min);
+	float  h=0.00;
 
 	
-	if(A==Max && C!=0){
+	if(A==Max && r!=0){
 	
-	   h=((B-C)/r)%6;
+	   h=((B-C)/r);
 			
 	}
 	else{
 	
-		if(B==Max && C!=0){
+		if(B==Max && r!=0){
 	
 	   		h=((C-A)/r)+2;
 			
 		}else{
 	
-			if(B==min && C!=0){
+			if(B==min && r!=0){
 		
 		   		h=((A-B)/r)+4;
 			}else{h=0;}
@@ -82,15 +82,16 @@ double Color(uint8_t Max,uint8_t min,uint8_t A,uint8_t B,uint8_t C)//H function
 	
 	     }
 
-	h=h*60/360;//se divide en 360 para normalizar y dejar solo valores entre 0 y  1
+	h=h*60/360;
  
 return h;
 }
 
-double Saturacion(uint8_t A, uint8_t B)//funcion minimo de pixel entre canales
+float Saturacion(uint8_t A, uint8_t B)//Saturacion 
 {
-double sat;
-sat=(double)(A-B)/A;
+float sat;
+sat=(((double)A-(double)B)/(double)A);
+//printf("S value %f\n %u\t %u\n",sat,A,B);//borrar linea
 return sat;
 }
 
@@ -100,10 +101,10 @@ printf( "falta minimo Brillo \n" );
 return 0;
 }
 
-double FiltroExperimental(uint8_t h, uint8_t s, uint8_t v)//funcion para aplicar filtro a los datos
+float FiltroExperimental(float h, float s, float v)//funcion para aplicar filtro a los datos
 {
-double filtro;
-filtro=(double)(1-(h-(s-v)^2))
+float filtro;
+filtro=(1-(h-(s-v)*(s-v)));
 return filtro;
 }
 
