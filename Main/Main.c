@@ -28,7 +28,7 @@ maxi = (uint8_t)maxim(Rpixel, Gpixel, Bpixel);
 mini = (uint8_t)maxim(Rpixel, Gpixel, Bpixel);
 sat = (double)Saturacion(maxi, mini);
 H = (double)lecturaRGB(Rpixel, Gpixel, Bpixel);
-
+filtro=(double)FiltroExperimental(H,mini,maxi);
 //prototipado funcion promedio
 img->data[i].r = H;
 img->data[i].g = sat;
