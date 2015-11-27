@@ -54,34 +54,35 @@ uint8_t minim(uint8_t A,uint8_t B,uint8_t C)//funcion minimo de pixel entre cana
 //printf( "falta minimo RGB \n" ); 
 }
 
-double Color(uint8_t Max,uint8_t min,uint8_t A,uint8_t B,uint8_t C)//funcion minimo de pixel entre canales
+double Color(uint8_t Max,uint8_t min,uint8_t A,uint8_t B,uint8_t C)//H function
 {	
 	uint8_t r=Max-min;
 	double  h=0.00;
 
 	
-	if(A==Max)&&(C!=0){
+	if(A==Max && C!=0){
 	
 	   h=((B-C)/r)%6;
 			
-	}else{
+	}
+	else{
 	
-		if(B==Max)&&(C!=0){
+		if(B==Max && C!=0){
 	
-	   		h=(C-A)/r)+2;
+	   		h=((C-A)/r)+2;
 			
 		}else{
 	
-			if(B==min)&&(C!=0){
+			if(B==min && C!=0){
 		
-		   		h=(A-B)/r)+4;
+		   		h=((A-B)/r)+4;
 			}else{h=0;}
 		     }
 
 	
 	     }
 
-	h=h*60;
+	h=h*60/360;//se divide en 360 para normalizar y dejar solo valores entre 0 y  1
  
 return h;
 }

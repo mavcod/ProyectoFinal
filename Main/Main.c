@@ -27,7 +27,7 @@ double sat;
 maxi = (uint8_t)maxim(Rpixel, Gpixel, Bpixel);
 mini = (uint8_t)maxim(Rpixel, Gpixel, Bpixel);
 sat = (double)Saturacion(maxi, mini);
-H = (uint8_t)lecturaRGB(Rpixel, Gpixel, Bpixel);
+H = (double)lecturaRGB(Rpixel, Gpixel, Bpixel);
 
 //prototipado funcion promedio
 img->data[i].r = H;
