@@ -39,12 +39,14 @@ H =Color(maxi,mini,Rpixel, Gpixel, Bpixel);
 filtro=FiltroExperimental(H,sat,(float)(maxi)/255);
 float* x;
 x = (float *) malloc(3);
-x=ConvHsvRgb(H*filtro,sat,(float)(maxi));
+x=ConvHsvRgb(H*360,sat,(float)(maxi));
 //prototipado funcion promedio
-img->data[i].r = x[1];//*filtro;
+img->data[i].r = x[1];
 img->data[i].g = x[2];
 img->data[i].b = x[3];
+free(x);
 }
+
 
 writeBMP("img.bmp", img);
 

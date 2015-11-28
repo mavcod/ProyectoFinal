@@ -2,15 +2,20 @@
 #include <stdlib.h>
 #include <math.h> 
 #include <stdint.h>
-void HsvToRgb(double h, double S, double V)
-{
- int r,g,b;
+#include "funcionesRgbHsv.h" //funciones
 
-  double H = h;
+float* ConvHsvRgb(float H, float S, float V)
+{
+float* x;
+x = (float *) malloc(3);
+
   while (H < 0) { H += 360; };
   while (H >= 360) { H -= 360; };
+
+// funcion para la conversion
   double R, G, B;
-  if (V <= 0)
+
+if (V <= 0)
     { R = G = B = 0; }
   else if (S <= 0)
   {
@@ -18,12 +23,13 @@ void HsvToRgb(double h, double S, double V)
   }
   else
   {
-    double hf = H / 60.0;
-    int i = hf;//(int)Math.Floor(hf);
-    double f = hf - i;
-    double pv = V * (1 - S);
-    double qv = V * (1 - S * f);
-    double tv = V * (1 - S * (1 - f));
+	double hf = H/60.0;
+	int i = H;//(int)Math.Floor(hf);
+  
+	double f = hf - i;
+	double pv = V * (1 - S);
+	double qv = V * (1 - S * f);
+	double tv = V * (1 - S * (1 - f));
     
 	if(i==0){
 		R = V;
@@ -63,12 +69,18 @@ void HsvToRgb(double h, double S, double V)
 	}
 
   }
-  r = rango((int)(R * 255.0));
-  g = rango((int)(G * 255.0));
-  b = rango((int)(B * 255.0));
 
+
+//lineas para guardar en la matriz imagen la matriz Hsv
+//x[1] = rango((int)(H * 255));
+//x[2] = rango((int)(S * 255));
+//x[3] = rango((int)(V * 1));
+
+  x[1] = rango((int)(R * 255.0));
+  x[2] = rango((int)(G * 255.0));
+  x[3] = rango((int)(B * 255.0));
+return x;
 }
-
 
 // rango un valor entre 0 y 255
 int rango(int i)
