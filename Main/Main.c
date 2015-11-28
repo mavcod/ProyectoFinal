@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include "funcionesRgbHsv.h" 
+#include "funcionesHsvRgb.h" 
 #include "loadBMP.h"
 #include <math.h> 
+#include <stdlib.h>
+
 int main()
 {  
 printf( "Principal Main \n" ); 
 ///lectura de imagen
- IMAGE *img;
+IMAGE *img;
     loadBMP("lena.bmp", &img);
 
 //variables de entrada a la funcion
@@ -34,13 +37,13 @@ mini = (uint8_t)minim(Rpixel, Gpixel, Bpixel);
 sat = Saturacion(maxi, mini);
 H =Color(maxi,mini,Rpixel, Gpixel, Bpixel);
 filtro=FiltroExperimental(H,sat,(float)(maxi)/255);
-
-
+float* x;
+x = (float *) malloc(3);
+x=ConvHsvRgb(H*filtro,sat,(float)(maxi));
 //prototipado funcion promedio
-img->data[i].r = H*filtro;
-img->data[i].g = sat;
-img->data[i].b = maxi;
-
+img->data[i].r = x[1];//*filtro;
+img->data[i].g = x[2];
+img->data[i].b = x[3];
 }
 
 writeBMP("img.bmp", img);

@@ -2,8 +2,8 @@ PROJECT = main.exe
 CC = gcc
 COMPILE_OPTIONS = -pedantic -Wall
 
-HEADERS = funcionesRgbHsv.h loadBMP.h
-SOURCE_FILES = funciones.c Main.c loadBMP.c
+HEADERS = funcionesRgbHsv.h loadBMP.h funcionesHsvRgb.h
+SOURCE_FILES = funciones.c Main.c loadBMP.c funciones2.c
 
 all: $(PROJECT)
 
