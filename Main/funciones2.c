@@ -9,8 +9,8 @@ float* ConvHsvRgb(float H, float S, float V)
 float* x;
 x = (float *) malloc(3);
 
-  while (H < 0) { H += 360; };
-  while (H >= 360) { H -= 360; };
+ while (H < 0) { H += 360; };
+ while (H >= 360) { H -= 360; };
 
 // funcion para la conversion
   double R, G, B;
@@ -23,14 +23,13 @@ if (V <= 0)
   }
   else
   {
-	double hf = H/60.0;
-	int i = H;//(int)Math.Floor(hf);
-  
-	double f = hf - i;
-	double pv = V * (1 - S);
-	double qv = V * (1 - S * f);
-	double tv = V * (1 - S * (1 - f));
-    
+	float hf = H/60.0;
+	int i = (int)hf;//(int)Math.Floor(hf);
+  	float f = hf - (float)i;
+	float pv = V * (1 - S);
+	float qv = 0.5*V * (1 - S * f);
+	float tv = V * (1 - S * (1 - f));
+
 	if(i==0){
 		R = V;
         	G = tv;
@@ -71,14 +70,10 @@ if (V <= 0)
   }
 
 
-//lineas para guardar en la matriz imagen la matriz Hsv
-//x[1] = rango((int)(H * 255));
-//x[2] = rango((int)(S * 255));
-//x[3] = rango((int)(V * 1));
-
   x[1] = rango((int)(R * 255.0));
   x[2] = rango((int)(G * 255.0));
   x[3] = rango((int)(B * 255.0));
+
 return x;
 }
 

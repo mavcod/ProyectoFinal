@@ -10,7 +10,7 @@ int main()
 printf( "Principal Main \n" ); 
 ///lectura de imagen
 IMAGE *img;
-    loadBMP("lena.bmp", &img);
+    loadBMP("018.bmp", &img);//el formato de entrada de la imagen es nombre.extención, para este caso solo lee imagenes BMP.
 
 //variables de entrada a la funcion
 uint8_t Rpixel;
@@ -22,6 +22,8 @@ float filtro;
 float H;
 float sat;
 int i;
+float* x;
+x = (float *) malloc(3);
 
 //recorriendo la imagen
 for (i = 0; i < img->width*img->height; i++) {
@@ -29,30 +31,27 @@ Rpixel=(uint8_t)img->data[i].r;
 Bpixel=(uint8_t)img->data[i].g;
 Gpixel=(uint8_t)img->data[i].b;
 
-
-
 // se definen las funciones max y min para el calculo de los canales hsv
 maxi = (uint8_t)maxim(Rpixel, Gpixel, Bpixel);
 mini = (uint8_t)minim(Rpixel, Gpixel, Bpixel);
-sat = Saturacion(maxi, mini);
-H =Color(maxi,mini,Rpixel, Gpixel, Bpixel);
-filtro=FiltroExperimental(H,sat,(float)(maxi)/255);
-float* x;
-x = (float *) malloc(3);
-x=ConvHsvRgb(H*360,sat,(float)(maxi));
-//prototipado funcion promedio
+
+sat = Saturacion(maxi, mini);//calculo de la saturacion del pixel
+H =Color(maxi,mini,Rpixel, Gpixel, Bpixel);//calculando canal de color H
+filtro=FiltroExperimental(H,sat,(float)(maxi)/255);//definiendo filtro multiplicador de color
+
+//retornando de hsv a rgb
+x=ConvHsvRgb(filtro*H,sat/filtro,filtro*(float)(maxi)/(255));
+
+//salida a imagen 
 img->data[i].r = x[1];
 img->data[i].g = x[2];
 img->data[i].b = x[3];
-free(x);
 }
+free(x);//libera memoria de variable X
 
+writeBMP("img.bmp", img); //guardado de imagen
 
-writeBMP("img.bmp", img);
-
-
-// libera memoria de la imagen.
-freeBMP(img);
+freeBMP(img);// libera memoria de la imagen.
     return 0;
 }
 

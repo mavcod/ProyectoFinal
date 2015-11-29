@@ -56,14 +56,13 @@ uint8_t minim(uint8_t A,uint8_t B,uint8_t C)//funcion minimo de pixel entre cana
 
 float Color(uint8_t Max,uint8_t min,uint8_t A,uint8_t B,uint8_t C)//H function
 {	
-	double r=(double)(Max-min);
+	float r=(double)(Max-min);
 	float  h=0.00;
 
 	
 	if(A==Max && r!=0){
-	
-	   h=((B-C)/r);
-			
+		h=((B - C) / r) ;
+	  		
 	}
 	else{
 	
@@ -82,8 +81,7 @@ float Color(uint8_t Max,uint8_t min,uint8_t A,uint8_t B,uint8_t C)//H function
 	
 	     }
 
-	h=h*60/360;
- 
+	h=h*60;
 return h;
 }
 
@@ -91,7 +89,6 @@ float Saturacion(uint8_t A, uint8_t B)//Saturacion
 {
 float sat;
 sat=(((double)A-(double)B)/(double)A);
-//printf("S value %f\n %u\t %u\n",sat,A,B);//borrar linea
 return sat;
 }
 
@@ -104,6 +101,10 @@ return 0;
 float FiltroExperimental(float h, float s, float v)//funcion para aplicar filtro a los datos
 {
 float filtro;
+while (h < 0) { h += 360; };
+while (h >= 360) { h -= 360; };
+h=h/360;
+//printf("h value %f\t producto cuadrado value %f\t s-v value %f\n",h,s,v);
 filtro=(1-(h-(s-v)*(s-v)));
 return filtro;
 }
