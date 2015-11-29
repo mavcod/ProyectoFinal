@@ -26,9 +26,9 @@ if (V <= 0)
 	float hf = H/60.0;
 	int i = (int)hf;//(int)Math.Floor(hf);
   	float f = hf - (float)i;
-	float pv = V * (1 - S);
+	float pv = 0.5*V * (1 - S);
 	float qv = 0.5*V * (1 - S * f);
-	float tv = V * (1 - S * (1 - f));
+	float tv = 0.5*V * (1 - S * (1 - f));
 
 	if(i==0){
 		R = V;
