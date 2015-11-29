@@ -31,3 +31,40 @@ Para retornar a los valores de canales RGB se utilizan las siguientes relaciones
  
 En este nuevo dominio, se puede controlar la cantidad de iluminación, sombras y componentes de color. Para el caso de las imágenes bajo el agua, se tienen imágenes con exceso de tonos azules y el ruido de la iluminación, basado en el tono azul oscuro que puede tomar una imagen el filtro propuesto busca resaltar las siluetas que contienen matices azules oscuras respecto al tono de la escena, el uso de esta técnica aún está en evaluación y formalización matemática, por lo que su divulgación debe ser cautelosa a causa que no se han detectado casos de uso donde no pueda funcionar.
 
+#### Requerimientos
+
+GCC compiler
+github
+imagen de entrada *.bmp
+
+##Modo de uso
+Para clonar el repositorio utilice el comando 
+..\ git clone https://github.com/mavcod/ProyectoFinal.git
+
+En la carpeta descargada, la carpeta Main debe contener la imagen **BMP** a procesar.
+
+En el archivo ***Main.c*** en las lineas de codigo se reemplaza en la seccion de lectura de imagen, en el comando *loadBMP("018.bmp", &img);* en el primer argumento, el nombre del archivo a procesar tipo bmp *"loadBMP("****Nombre****.bmp", &img);"*
+```php
+///lectura de imagen
+IMAGE *img;
+    loadBMP("018.bmp", &img);//el formato de entrada de la imagen es nombre.extención, para este caso solo lee imagenes BMP.
+```
+######reemplaza por 
+```php
+///lectura de imagen
+IMAGE *img;
+    loadBMP("Nombre.bmp", &img);
+```
+
+Finalmente dentro de la carpeta /Main ejecutar el archivo make mediante el comando
+
+$make -f Makepro
+
+y ejecutar el .exe generado
+
+$ ./Main.exe
+
+Esto genera dentro de la carpeta /Main el archivo de salida img.bmp con la aplicación del filtro propuesto.
+Para **borrar** el *Main.exe* y la imagen de salida *img.bmp* utilice el comando 
+
+$make -f Makepro clean
