@@ -75,7 +75,9 @@ int loadBMP(const char *filepath, IMAGE **image)
     (*image)->data = img_data;
     (*image)->width = dib_hdr->width;
     (*image)->height = dib_hdr->height;
-    return 0;
+	fclose(fh);  //agregado  
+free(img_data);
+	return 0;
 }
 
 void print_headers()
