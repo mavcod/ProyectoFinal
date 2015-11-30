@@ -1,3 +1,3 @@
 //Prototipado funciones
 #include <stdint.h>
-float* ConvHsvRgb(float , float , float );
+float * ConvHsvRgb(float , float , float );

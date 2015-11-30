@@ -1,6 +1,6 @@
 PROJECT = main.exe
 CC = gcc
-COMPILE_OPTIONS = -pedantic -Wall
+COMPILE_OPTIONS = -pedantic -Wall -g -O0
 
 HEADERS = funcionesRgbHsv.h loadBMP.h funcionesHsvRgb.h
 SOURCE_FILES = funciones.c Main.c loadBMP.c funciones2.c
@@ -12,3 +12,9 @@ $(PROJECT):
 
 clean:
 	rm -f $(PROJECT) img.bmp
+gdbmake:
+	gdb ./main.exe
+Valval:
+	valgrind --tool=memcheck --leak-check=yes --dsymutil=yes --show-reachable=yes --track-origins=yes ./$(PROJECT)
+calcal:
+	valgrind --tool=callgrind --dump-instr=yes --collect-jumps=yes ./$(PROJECT)
