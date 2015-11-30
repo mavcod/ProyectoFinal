@@ -31,6 +31,7 @@ else {
 		MAXI=C;
 		}
 }
+
 return MAXI;
 printf( "falta maximo RGB \n" ); 
 //return 0;
@@ -88,7 +89,13 @@ return h;
 float Saturacion(uint8_t A, uint8_t B)//Saturacion 
 {
 float sat;
-sat=(((double)A-(double)B)/(double)A);
+if (A == B) {
+		sat=1;
+		}
+	else {
+		sat=(((double)A-(double)B)/(double)A);
+		}
+
 return sat;
 }
 
@@ -108,5 +115,3 @@ h=h/360;
 filtro=(1-(h-(s-v)*(s-v)));
 return filtro;
 }
-
-
