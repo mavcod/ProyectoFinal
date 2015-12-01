@@ -1,5 +1,10 @@
 # ProyectoFinal
 Proyecto final Edson-Manuel
+##Contenido
+* Carpeta Main: contiene los archivos del proyecto
+* ProyectoReporteAvance.docx: Contiene el informe de avance a medida que se avanzó en el proyecto.
+* ReporteFinal.docx: Contiene el informe final.
+* README.md: Archivo de cabecera para visualización en github.
 #### Introducción
 El modelo HSV (del inglés Hue, Saturation, Value – Matiz, Saturación, Valor),  define un modelo de color en términos de sus componentes. De esta forma se puede realizar la transformación para conocer los valores básicos RGB en el dominio HSV:
 
