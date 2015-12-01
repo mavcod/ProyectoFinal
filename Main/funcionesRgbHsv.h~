@@ -1,6 +1,0 @@
-//Prototipado funciones
-double lecturaRGB();
-double maxim();
-double minim();
-double Saturacion()
-double Brillo()
