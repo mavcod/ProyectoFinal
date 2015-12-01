@@ -41,30 +41,29 @@ imagen de entrada *.bmp
 Para clonar el repositorio utilice el comando 
 ..\ git clone https://github.com/mavcod/ProyectoFinal.git
 
-En la carpeta descargada, la carpeta Main debe contener la imagen **BMP** a procesar.
+La descarga instalará la carpeta ProyectoFinal en la ubicacion deseada, esta carpeta contiene los archivos Readme.md, ProyectoReporteAvance.docx , y ReporteFinal.docx. Estos archivos pretenden reflejar la documentación del trabajo realizado, tambien dentro de esta carpeta se encontrará la carpeta **Main** la cual debe contener la imagen **BMP** a procesar.
 
-En el archivo ***Main.c*** en las lineas de codigo se reemplaza en la seccion de lectura de imagen, en el comando *loadBMP("018.bmp", &img);* en el primer argumento, el nombre del archivo a procesar tipo bmp *"loadBMP("****Nombre****.bmp", &img);"*
-```php
-///lectura de imagen
-IMAGE *img;
-    loadBMP("018.bmp", &img);//el formato de entrada de la imagen es nombre.extención, para este caso solo lee imagenes BMP.
+Para la ejecución del proyecto, se utilizan los comandos *make* expuestos a continuacion:
+
+*	../make –f Makepro “compila el proyecto para generar ejecutable” con el ejecutable main.exe se puede generar la transformación de la imagen.
+
+*	../make –f Makepro clean “elimina archivos generados” los archivos que elimina al ejecutar el “clean” son el ejecutable y la imagen de salida img.bmp.
+
+*	../make –f Makepro gdbmake “ejecuta el proyecto en modo debugging” ejecuta el archive main.exe y el debugger.
+
+*	../make –f Makepro Valval “ejecuta el proyecto usando valgrind con las opciones de memcheck” ejecuta el archive main.exe y el análisis de fuga de memoria.
+
+*	../make –f Makepro calcal “ejecuta proyecto usando valgrind con opciones callgrind” se utiliza para generar el archivo callgrind, posterior a esto se utiliza el comando .../kcachegrind “callgrind name file” para analizar con kcachegrind.
+
+Si se desea ejecutar solamente el proyecto se utiliza el comando ***../make –f Makepro*** para generar el ejecutable ***main.exe***, ya con el archivo *main.exe* se ejecuta con el comando ***./main.exe***, esto iniciará la ejecucion del proyecto compilado, y seguido esto pedirá el nombre de la imagen de entrada para continuar la ejecucion, las imagenes de entrada deben estar contenidas dentro de la carpeta Main, y solo pueden ser de extension *.BMP*, como entrada al argumento solicitado debe colocarse ***nombre.bmp***, donde nombre es el nombre de la imagen.
+
+Finalmente dentro de la carpeta */Main* al ejecutar el archivo *main.exe* se genera dentro de la carpeta, el archivo de salida ***img.bmp*** con la aplicación del filtro propuesto. Para **borrar** el *Main.exe* y la imagen de salida *img.bmp* utilice el comando ***.../make -f Makepro clean***
+#ejemplo de uso
 ```
-######reemplaza por 
-```php
-///lectura de imagen
-IMAGE *img;
-    loadBMP("Nombre.bmp", &img);
-```
-
-Finalmente dentro de la carpeta /Main ejecutar el archivo make mediante el comando
-
 $make -f Makepro
+$./main.exe
 
-y ejecutar el .exe generado
-
-$ ./Main.exe
-
-Esto genera dentro de la carpeta /Main el archivo de salida img.bmp con la aplicación del filtro propuesto.
-Para **borrar** el *Main.exe* y la imagen de salida *img.bmp* utilice el comando 
-
-$make -f Makepro clean
+ Introduzca el nombre de la imagen extension *BMP (ej:lena.bmp) :
+ lena.bmp
+ 
+```
