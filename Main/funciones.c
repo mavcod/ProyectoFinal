@@ -7,7 +7,6 @@
 uint8_t lecturaRGB (uint8_t R, uint8_t G, uint8_t B)//Funcion lectura RGB
 {
 	uint8_t avg = (R+B+G)/3;
-	//printf( "falta lectura RGB \n" ); 
 	return avg;
 
 }
@@ -101,7 +100,6 @@ float FiltroExperimental(float h, float s, float v)//funcion para aplicar filtro
 	while (h < 0) { h += 360; };
 	while (h >= 360) { h -= 360; };
 	h=h/360;
-	//printf("h value %f\t producto cuadrado value %f\t s-v value %f\n",h,s,v);
 	filtro=(1-(h-(s-v)*(s-v)));
 	return filtro;
 }

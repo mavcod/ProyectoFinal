@@ -32,7 +32,7 @@ float * ConvHsvRgb(float H, float S, float V)
 	  else
 	  {
 		float hf = H/60.0;
-		int i = (int)hf;//(int)Math.Floor(hf);
+		int i = (int)hf;
 	  	float f = hf - (float)i;
 		float pv = 0.8*V * (1 - S);
 		float qv = 0.8*V * (1 - S * f);
@@ -77,12 +77,11 @@ float * ConvHsvRgb(float H, float S, float V)
 
 	  }
 
-//	float* x=0;
-//	x = (float *) malloc(3);
+
 float x[3]={0,0,0};
 	 x[1] =(float)rango((R ));
 	 x[2] =(float)rango((G ));
 	 x[3] =(float)rango((B ));
 	return x;
-//	free(x);
+
 }
