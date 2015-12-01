@@ -11,7 +11,7 @@ int main()
 	///lectura de imagen
 	char carName[50];
 	printf("\n Introduzca el nombre de la imagen extension *BMP (ej:lena.bmp) : \n");
-	scanf("%s", &carName);
+	scanf("%s", carName);
 
 	IMAGE *img;
 	    //loadBMP("lena.bmp", &img);//el formato de entrada de la imagen es nombre.extención, para este caso solo lee imagenes BMP.
