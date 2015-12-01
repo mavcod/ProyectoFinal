@@ -9,7 +9,7 @@ RGB a HSV funciones | Cono HSV
 
 
 
-Donde disponemos de 360 grados dónde se dividen los 3 colores RGB, eso da un total de 120º por color, sabiendo esto podemos recordar que el 0 es rojo RGB(1, 0, 0), 120 es verde RGB(0, 1, 0) y 240 es azul RGB(0, 0, 1). Para colores mixtos se utilizan los grados intermedios, el amarillo, RGB(1, 1, 0) está entre rojo y verde, por lo tanto 60º. Se puede observar como se sigue la secuencia de sumar 60 grados y añadir un 1 o quitar el anterior. Para el color blanco se puede poner cualquier color y saturación, siempre que se establezca el valor (de luminosidad) máximo. Asimismo, para el color negro se puede poner cualquier color y saturación, siempre que se ponga un valor de 0.
+Donde disponemos de 360 grados dónde se dividen los 3 colores RGB, eso da un total de 120º por color, sabiendo esto podemos recordar que el 0 es rojo RGB(1, 0, 0), 120 es verde RGB(0, 1, 0) y 240 es azul RGB(0, 0, 1). Para colores mixtos se utilizan los grados intermedios, el amarillo, RGB(1, 1, 0) está entre rojo y verde, por lo tanto 60º. Se puede observar cómo se sigue la secuencia de sumar 60 grados y añadir un 1 o quitar el anterior. Para el color blanco se puede poner cualquier color y saturación, siempre que se establezca el valor (de luminosidad) máximo. Asimismo, para el color negro se puede poner cualquier color y saturación, siempre que se ponga un valor de 0.
 
 Para retornar a los valores de canales RGB se utilizan las siguientes relaciones.
 
@@ -41,9 +41,9 @@ imagen de entrada *.bmp
 Para clonar el repositorio utilice el comando 
 ..\ git clone https://github.com/mavcod/ProyectoFinal.git
 
-La descarga instalará la carpeta ProyectoFinal en la ubicacion deseada, esta carpeta contiene los archivos Readme.md, ProyectoReporteAvance.docx , y ReporteFinal.docx. Estos archivos pretenden reflejar la documentación del trabajo realizado, tambien dentro de esta carpeta se encontrará la carpeta **Main** la cual debe contener la imagen **BMP** a procesar.
+La descarga instalará la carpeta ProyectoFinal en la ubicación deseada, esta carpeta contiene los archivos Readme.md, ProyectoReporteAvance.docx , y ReporteFinal.docx. Estos archivos pretenden reflejar la documentación del trabajo realizado, también dentro de esta carpeta se encontrará la carpeta **Main** la cual debe contener la imagen **BMP** a procesar.
 
-Para la ejecución del proyecto, se utilizan los comandos *make* expuestos a continuacion:
+Para la ejecución del proyecto, se utilizan los comandos *make* expuestos a continuación:
 
 *	../make –f Makepro “compila el proyecto para generar ejecutable” con el ejecutable main.exe se puede generar la transformación de la imagen.
 
@@ -55,7 +55,7 @@ Para la ejecución del proyecto, se utilizan los comandos *make* expuestos a con
 
 *	../make –f Makepro calcal “ejecuta proyecto usando valgrind con opciones callgrind” se utiliza para generar el archivo callgrind, posterior a esto se utiliza el comando .../kcachegrind “callgrind name file” para analizar con kcachegrind.
 
-Si se desea ejecutar solamente el proyecto se utiliza el comando ***../make –f Makepro*** para generar el ejecutable ***main.exe***, ya con el archivo *main.exe* se ejecuta con el comando ***./main.exe***, esto iniciará la ejecucion del proyecto compilado, y seguido esto pedirá el nombre de la imagen de entrada para continuar la ejecucion, las imagenes de entrada deben estar contenidas dentro de la carpeta Main, y solo pueden ser de extension *.BMP*, como entrada al argumento solicitado debe colocarse ***nombre.bmp***, donde nombre es el nombre de la imagen.
+Si se desea ejecutar solamente el proyecto se utiliza el comando ***../make –f Makepro*** para generar el ejecutable ***main.exe***, ya con el archivo *main.exe* se ejecuta con el comando ***./main.exe***, esto iniciará la ejecución del proyecto compilado, y seguido esto pedirá el nombre de la imagen de entrada para continuar la ejecución, las imágenes de entrada deben estar contenidas dentro de la carpeta Main, y solo pueden ser de extensión *.BMP*, como entrada al argumento solicitado debe colocarse ***nombre.bmp***, donde nombre es el nombre de la imagen.
 
 Finalmente dentro de la carpeta */Main* al ejecutar el archivo *main.exe* se genera dentro de la carpeta, el archivo de salida ***img.bmp*** con la aplicación del filtro propuesto. Para **borrar** el *Main.exe* y la imagen de salida *img.bmp* utilice el comando ***.../make -f Makepro clean***
 #ejemplo de uso
@@ -63,7 +63,7 @@ Finalmente dentro de la carpeta */Main* al ejecutar el archivo *main.exe* se gen
 $make -f Makepro
 $./main.exe
 
- Introduzca el nombre de la imagen extension *BMP (ej:lena.bmp) :
+ Introduzca el nombre de la imagen extensión *BMP (ej:lena.bmp) :
  lena.bmp
  
 ```
