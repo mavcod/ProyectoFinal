@@ -6,36 +6,33 @@
 
 uint8_t lecturaRGB (uint8_t R, uint8_t G, uint8_t B)//Funcion lectura RGB
 {
-uint8_t avg = (R+B+G)/3;
-//printf( "falta lectura RGB \n" ); 
-return avg;
+	uint8_t avg = (R+B+G)/3;
+	//printf( "falta lectura RGB \n" ); 
+	return avg;
 
 }
 
 uint8_t maxim(uint8_t A,uint8_t B,uint8_t C)//funcion maximo de pixel entre canales
 {
-uint8_t MAXI;
-if(A > B) {
-	if(A > C) {
-		MAXI=A;
-		}
+	uint8_t MAXI;
+	if(A > B) {
+		if(A > C) {
+			MAXI=A;
+			}
+		else {
+			MAXI=C;
+			}
+	}
 	else {
-		MAXI=C;
-		}
-}
-else {
-	if(B > C) {
-		MAXI=B;
-		}
-	else {
-		MAXI=C;
-		}
-}
+		if(B > C) {
+			MAXI=B;
+			}
+		else {
+			MAXI=C;
+			}
+	}
 
-return MAXI;
-printf( "falta maximo RGB \n" ); 
-//return 0;
-
+	return MAXI;
 }
 
 uint8_t minim(uint8_t A,uint8_t B,uint8_t C)//funcion minimo de pixel entre canales
@@ -51,8 +48,6 @@ uint8_t minim(uint8_t A,uint8_t B,uint8_t C)//funcion minimo de pixel entre cana
 		mini=mini;
 		}
     return mini;
-
-//printf( "falta minimo RGB \n" ); 
 }
 
 float Color(uint8_t Max,uint8_t min,uint8_t A,uint8_t B,uint8_t C)//H function
@@ -83,35 +78,30 @@ float Color(uint8_t Max,uint8_t min,uint8_t A,uint8_t B,uint8_t C)//H function
 	     }
 
 	h=h*60;
-return h;
+	return h;
 }
 
 float Saturacion(uint8_t A, uint8_t B)//Saturacion 
 {
 float sat;
-if (A == B) {
-		sat=1;
-		}
-	else {
-		sat=(((double)A-(double)B)/(double)A);
-		}
+	if (A == B) {
+			sat=1;
+			}
+		else {
+			sat=(((double)A-(double)B)/(double)A);
+			}
 
-return sat;
+	return sat;
 }
 
-double Brillo()//funcion minimo de pixel entre canales
-{
-printf( "falta minimo Brillo \n" ); 
-return 0;
-}
 
 float FiltroExperimental(float h, float s, float v)//funcion para aplicar filtro a los datos
 {
-float filtro;
-while (h < 0) { h += 360; };
-while (h >= 360) { h -= 360; };
-h=h/360;
-//printf("h value %f\t producto cuadrado value %f\t s-v value %f\n",h,s,v);
-filtro=(1-(h-(s-v)*(s-v)));
-return filtro;
+	float filtro;
+	while (h < 0) { h += 360; };
+	while (h >= 360) { h -= 360; };
+	h=h/360;
+	//printf("h value %f\t producto cuadrado value %f\t s-v value %f\n",h,s,v);
+	filtro=(1-(h-(s-v)*(s-v)));
+	return filtro;
 }
