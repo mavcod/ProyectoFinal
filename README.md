@@ -58,7 +58,7 @@ Para la ejecución del proyecto, se utilizan los comandos *make* expuestos a con
 Si se desea ejecutar solamente el proyecto se utiliza el comando ***../make –f Makepro*** para generar el ejecutable ***main.exe***, ya con el archivo *main.exe* se ejecuta con el comando ***./main.exe***, esto iniciará la ejecución del proyecto compilado, y seguido esto pedirá el nombre de la imagen de entrada para continuar la ejecución, las imágenes de entrada deben estar contenidas dentro de la carpeta Main, y solo pueden ser de extensión *.BMP*, como entrada al argumento solicitado debe colocarse ***nombre.bmp***, donde nombre es el nombre de la imagen.
 
 Finalmente dentro de la carpeta */Main* al ejecutar el archivo *main.exe* se genera dentro de la carpeta, el archivo de salida ***img.bmp*** con la aplicación del filtro propuesto. Para **borrar** el *Main.exe* y la imagen de salida *img.bmp* utilice el comando ***.../make -f Makepro clean***
-#ejemplo de uso
+# Ejemplo de uso
 ```
 $make -f Makepro
 $./main.exe
