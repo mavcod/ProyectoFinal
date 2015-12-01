@@ -7,11 +7,15 @@
 
 int main()
 {  
-printf( "Principal Main \n" ); 
+//printf( "Principal Main \n" ); 
 ///lectura de imagen
-IMAGE *img;
-    loadBMP("lena.bmp", &img);//el formato de entrada de la imagen es nombre.extención, para este caso solo lee imagenes BMP.
+char carName[50];
+printf("\n Introduzca el nombre de la imagen extension *BMP (ej:lena.bmp) : \n");
+     scanf("%s", &carName);
 
+IMAGE *img;
+    //loadBMP("lena.bmp", &img);//el formato de entrada de la imagen es nombre.extención, para este caso solo lee imagenes BMP.
+	loadBMP(carName, &img);//el formato de entrada de la imagen es nombre.extención, para este caso solo lee imagenes BMP.
 //variables de entrada a la funcion
 uint8_t Rpixel;
 uint8_t Bpixel;
@@ -43,15 +47,13 @@ filtro=FiltroExperimental(H,sat,(float)(maxi)/255);//definiendo filtro multiplic
 x=ConvHsvRgb(filtro*H,sat,(float)(maxi)/(255));
 
 //salida a imagen 
-img->data[i].r = x[1];
-img->data[i].g = x[2];
-img->data[i].b = x[3];
-
+img->data[i].r = filtro*255;//x[1];
+img->data[i].g = filtro*255;//x[2];
+img->data[i].b = filtro*255;//x[3];
 }
 //free(x);//libera memoria de variable X
 
 writeBMP("img.bmp", img); //guardado de imagen
-
 freeBMP(img);// libera memoria de la imagen.
 free(img);
     return 0;
