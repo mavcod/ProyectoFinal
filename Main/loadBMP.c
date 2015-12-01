@@ -68,7 +68,7 @@ int loadBMP(const char *filepath, IMAGE **image)
         uint32_t beg = ftell(fh);
         fseek(fh, 0, SEEK_END);
         uint32_t end = ftell(fh);
-        
+
         printf("Finished: %u/%u\n", beg, end);
     #endif
     *image = malloc(sizeof(IMAGE));
@@ -76,8 +76,9 @@ int loadBMP(const char *filepath, IMAGE **image)
     (*image)->width = dib_hdr->width;
     (*image)->height = dib_hdr->height;
 	fclose(fh);  //agregado  
-free(img_data);
 	return 0;
+
+free(image);
 }
 
 void print_headers()
@@ -98,6 +99,7 @@ int writeBMP(const char *filename, IMAGE *img)
     fwrite((void*)img->data, sizeof(ColorRGB),
             dib_hdr->width*dib_hdr->height, fh);
     fclose(fh);
+
     return 0;
 }
 
@@ -105,4 +107,4 @@ int freeBMP(IMAGE *img_data)
 {
     free(bmp_hdr);
     free(dib_hdr);
-}
+    }

@@ -15,6 +15,6 @@ clean:
 gdbmake:
 	gdb ./main.exe
 Valval:
-	valgrind --tool=memcheck --leak-check=yes --dsymutil=yes --show-reachable=yes --track-origins=yes ./$(PROJECT)
+	valgrind --tool=memcheck --leak-check=yes --dsymutil=yes --show-reachable=yes --track-origins=yes --keep-stacktraces=alloc ./$(PROJECT)
 calcal:
 	valgrind --tool=callgrind --dump-instr=yes --collect-jumps=yes ./$(PROJECT)
